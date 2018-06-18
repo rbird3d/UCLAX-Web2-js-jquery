@@ -1,0 +1,16 @@
+.allSlideshows {
+    display: flex;
+    width: 1280px;
+    border: solid 10px teal;
+    margin: 50px auto;
+}
+.slideshow {
+    width: 320px; height: 320px;
+    position: relative;
+    overflow: hidden;
+}
+.slideshow img {
+    position: absolute;
+    left: 0px; top: 0px;
+    transition: 1s all;
+}

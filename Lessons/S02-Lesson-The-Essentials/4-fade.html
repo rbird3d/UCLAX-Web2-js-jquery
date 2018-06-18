@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Fade</title>
+		<link rel="stylesheet" href="./css/styles.css">
+		<style>
+			body { background-color: #56728f; }
+
+			.fade .set {
+				border: solid 5px #ffffff;
+
+				width: 300px;
+				height: 200px;
+				position: relative;
+				margin: auto;
+				margin-bottom: 25px;
+			}
+
+			.fade .set img {
+				position: absolute;
+				left: 0px;
+				top: 0px;
+
+				transition: all 1s;
+			}
+
+			.fade .set img.color { opacity: 0.00; }
+			.fade .set img.color.on { opacity: 1.00; }
+
+
+		</style>
+	</head>
+	<body>
+		<div class="wrapper">
+			<h1>Fade</h1>
+
+			<div class="fade">
+
+				<div class="set">
+					<img class="gray" src="./img/gray/1_300x200.jpg">
+					<img class="color" src="./img/color/1_300x200.jpg">
+				</div>
+
+				<div class="set">
+					<img class="gray" src="./img/gray/2_300x200.jpg">
+					<img class="color" src="./img/color/2_300x200.jpg">
+				</div>
+
+				<div class="set">
+					<img class="gray" src="./img/gray/3_300x200.jpg">
+					<img class="color" src="./img/color/3_300x200.jpg">
+				</div>
+
+				<div class="set">
+					<img class="gray" src="./img/gray/4_300x200.jpg">
+					<img class="color" src="./img/color/4_300x200.jpg">
+				</div>
+
+				<div class="set">
+					<img class="gray" src="./img/gray/5_300x200.jpg">
+					<img class="color" src="./img/color/5_300x200.jpg">
+				</div>
+
+				<div class="set">
+					<img class="gray" src="./img/gray/6_300x200.jpg">
+					<img class="color" src="./img/color/6_300x200.jpg">
+				</div>
+
+			</div>
+		</div>
+
+		<script>
+
+			var colorImages = document.querySelectorAll('.fade .set img.color');
+
+			console.log('colorImages Array: ', colorImages);
+			console.log('colorImages 1', colorImages[0]);
+			console.log('colorImages 2', colorImages[1]);
+
+
+		</script>
+
+	</body>
+</html>

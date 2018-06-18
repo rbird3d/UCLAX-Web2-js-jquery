@@ -1,0 +1,124 @@
+<html>
+    <head>
+        <title>OBJECTS</title>
+        <link rel="stylesheet" href="./css/styles.css">
+    </head>
+    <body>
+        <h1 class="hello">OBJECTS</h1>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur <a href="http://apple.com/" target="_blank"><span>Link to A New Window</span></a> elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+        <div class="bulbs">
+            <img class="red" data-off="./img/red-off.png" data-on="./img/red-on.png" src="./img/red-off.png">
+            <img class="green" data-off="./img/green-off.png" data-on="./img/green-on.png" src="./img/green-off.png">
+            <img class="blue" data-off="./img/blue-off.png" data-on="./img/blue-on.png" src="./img/blue-off.png">
+        </div>
+
+        <script>
+            /*-------------------------------------
+            | Creating Objects the JavaScript way
+            -------------------------------------*/
+            function Hero(name, superPower, height) {
+                this.name = name;
+                this.superPower = superPower;
+                this.height = height;
+                this.runPowers = function() {
+                    return this.name + ' is attacking you with' + this.superPower;
+                }
+                this.howTall = function() {
+                    return this.name + ' is' + this.height + ' tall';
+                }
+            }
+
+            // New instance of Object
+            var Superman = new Hero('Superman', ' Lazerbeams and Flight', '8ft');
+            var WonderWoman = new Hero('Wonder Woman', ' Lasso of Truth and Speed', ' 10ft');
+            //
+            // console.log(Superman.name);
+            // console.log(Superman.superPower);
+            // console.log(Superman.runPowers());
+            // console.log(WonderWoman.howTall());
+
+            WonderWoman.height = ' 20ft';
+            WonderWoman.whatever = 'Whatever I want';
+
+            // console.log(WonderWoman.name);
+            // console.log(WonderWoman.superPower);
+            // console.log(WonderWoman.runPowers());
+            // console.log(WonderWoman.howTall());
+            //
+            // console.log(Superman);
+            // console.log(WonderWoman);
+
+            /*-------------------------------------
+            | Everything is an object :: functions, arrays, html elements (nodes)
+            | use console.dir(obj); to see object props/methods
+            -------------------------------------*/
+            console.dir(document);
+            var theH1 = document.querySelector('h1');
+
+            console.log(theH1);
+            console.dir(theH1);
+
+            var theP = document.querySelector('p');
+            console.log(theP);
+            console.dir(theP);
+
+            var theA = document.querySelector('a');
+            // console.log(theA);
+            // console.dir(theA);
+            // console.log(theA.innerHTML);
+            theA.favColor = 'Red';
+            // console.log(theA.favColor);
+
+            /*-------------------------------------
+            | Pass Object to a function and Extend its props and methods
+            -------------------------------------*/
+            function addStuff(obj) {
+                obj.favMovie = 'Star Wars';
+                obj.watch = function() {
+                    return 'I am watching ' + obj.favMovie;
+                }
+            }
+
+            // addStuff(theP);
+            addStuff(theA);
+
+            // console.log(theA.favMovie);
+            // console.log(theA.watch());
+
+            /*-------------------------------------
+            | Practical Example :: function BulbPowers() {}
+            | Passing Objects to our functions are a way to give them shared super powers
+            -------------------------------------*/
+            function BulbPowers(theBulb) {
+                theBulb.overSrc = theBulb.dataset.on;
+                theBulb.outSrc = theBulb.dataset.off;
+
+                theBulb.doSomething = function() {
+                    console.log('I am a Lightbulb.');
+                }
+
+                theBulb.addEventListener('mouseover', function() {
+                    theBulb.src = theBulb.outSrc;
+                });
+
+                theBulb.addEventListener('mouseout', function() {
+                    theBulb.src = theBulb.outSrc;
+                });
+
+                theBulb.addEventListener('click', function() {
+                    theBulb.doSomething();
+                });
+            }
+
+            var theRed = document.querySelector('img.red');
+            BulbPowers(theRed);
+
+            BulbPowers(document.querySelector('img.green'));
+            BulbPowers(document.querySelector('img.blue'));
+
+
+        </script>
+    </body>
+</html>

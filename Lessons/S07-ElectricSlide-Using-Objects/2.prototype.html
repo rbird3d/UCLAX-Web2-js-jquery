@@ -1,0 +1,144 @@
+<html>
+	<head>
+        <title>Slideshows</title>
+		<link rel="stylesheet" href="./css/styles.css">
+	</head>
+	<body>
+		<h1>Slideshows Prototype</h1>
+
+		<p>
+			Prototype Inheritance is a way to share methods and props across all instances without bloating the object.
+			It reduces memory and optimizes your code.
+		</p>
+
+		<div class="allSlideshows">
+			<div class="slideshow" data-direction="left">
+				<img src="./img/1.jpg">
+				<img src="./img/2.jpg">
+				<img src="./img/3.jpg">
+				<img src="./img/4.jpg">
+				<img src="./img/5.jpg">
+			</div>
+			<div class="slideshow" data-direction="right">
+				<img src="./img/6.jpg">
+				<img src="./img/7.jpg">
+				<img src="./img/8.jpg">
+				<img src="./img/9.jpg">
+				<img src="./img/10.jpg">
+			</div>
+			<div class="slideshow" data-direction="up">
+				<img src="./img/11.jpg">
+				<img src="./img/12.jpg">
+				<img src="./img/13.jpg">
+				<img src="./img/14.jpg">
+				<img src="./img/15.jpg">
+			</div>
+			<div class="slideshow" data-direction="down">
+				<img src="./img/1.jpg">
+				<img src="./img/2.jpg">
+				<img src="./img/3.jpg">
+				<img src="./img/4.jpg">
+				<img src="./img/5.jpg">
+			</div>
+		</div>
+
+		<script src="./js/jquery.js"></script>
+		<script>
+
+			var object_slideshows = function() {//not good practice to define in the global namespace
+				function slideshow(div) {
+					this.div = div;
+					this.direction = div.dataset.direction;
+
+					this.width = 320;
+					this.height = 320;
+					this.speed = '1s all';
+					this.pause = 2000;
+					this.images = div.querySelectorAll('img');
+				}
+
+				slideshow.prototype.init = function() {
+					switch (this.direction) {
+						case 'left' : case 'right' : this.slideHoriz(); break;
+						case 'down' : case 'up' : this.slideVert(); break;
+					}
+				}
+
+				slideshow.prototype.slideHoriz = function() {
+					this.assignTransition();
+
+					this.offset = (this.direction == 'left') ? this.width : (this.width * -1)
+
+					// Set Up our Images
+					this.images.forEach((image, index) => {
+						if (index > 0)
+						{
+							image.style.left = this.offset;
+						}
+					});
+
+
+					this.slide = () => {
+						this.images = this.div.querySelectorAll('img'); //we keep shuffling the deck
+						this.images[1].style.left = 0;
+						this.images[1].addEventListener('transitionend', this.complete);
+					}
+
+					this.complete = () => {
+						this.images[1].removeEventListener('transitionend', this.complete);
+						this.images[0].style.left = this.offset;
+						this.div.appendChild(this.images[0]);
+						setTimeout(this.slide, this.pause); //keep party going
+					}
+
+					setTimeout(this.slide, this.pause); //start party
+
+				}
+				slideshow.prototype.slideVert = function() {
+					this.assignTransition();
+
+					this.offset = (this.direction == 'up') ? this.height : (this.height * -1)
+
+					// Set Up our Images
+					this.images.forEach((image, index) => {
+						if (index > 0)
+						{
+							image.style.top = this.offset;
+						}
+					});
+
+
+					this.slide = () => {
+						this.images = this.div.querySelectorAll('img'); //we keep shuffling the deck
+						this.images[1].style.top = 0;
+						this.images[1].addEventListener('transitionend', this.complete);
+					}
+
+					this.complete = () => {
+						this.images[1].removeEventListener('transitionend', this.complete);//don't double up adding eventlisteners
+						this.images[0].style.top = this.offset;
+						this.div.appendChild(this.images[0]);
+						setTimeout(this.slide, this.pause); //keep party going
+					}
+
+					setTimeout(this.slide, this.pause); //start party
+				}
+
+				// in case we want to change the default speed.
+				slideshow.prototype.assignTransition = function() {
+					this.images.forEach((image) => {
+						image.style.transition = this.speed;
+					});
+				}
+
+				// Assign to all slideshows
+				document.querySelectorAll('.slideshow').forEach(function(currSlideshow) {
+					var ss1 = new slideshow(currSlideshow);
+					ss1.init();
+				});
+			};
+
+			object_slideshows();
+		</script>
+	</body>
+</html>

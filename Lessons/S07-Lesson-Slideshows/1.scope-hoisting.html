@@ -1,0 +1,130 @@
+<html>
+    <head>
+        <title>Scope, Hoisting And JQuery</title>
+        <style>
+            .gallery {
+                width: 95%;
+                margin: auto;
+            }
+            .gallery img {
+                width: 33.33333%;
+                float: left;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Scope, Hoisting And JQuery</h1>
+
+        <div class="gallery">
+            <img src="./img/image11.jpg">
+            <img src="./img/image12.jpg">
+            <img src="./img/image13.jpg">
+            <img src="./img/image14.jpg">
+            <img src="./img/image15.jpg">
+        </div>
+        <script src="./js/jquery.js"></script>
+        <script>
+            // console.log($);
+
+            // function $('css selector') {
+            //
+            // }
+
+            // console.log($('.gallery img'));
+            // console.log($('img'));
+
+            $('.gallery img').click(function(){
+                console.log(this);
+            });
+            $('h1').click(function(){
+                console.log('I can select anything');
+            });
+
+            /*-------------------------------------
+            | Global Scope :: Window is the Global Scope
+            | Global Scope isn't bad, we just tend to avoid it to keep code from clashing.
+            -------------------------------------*/
+            // console.log(window);
+            // console.log(document);
+
+            var myVar = 'Something Else';
+            // console.log(myVar);
+
+
+            /*-------------------------------------
+            | Local Scope :: Scope is relative to that block
+            -------------------------------------*/
+            var outside = 'I am Outside';
+
+            function doSomething() {
+                var inside = 'I am Inside';
+                // let inside = 'I am Inside';
+
+                console.log(outside);
+                console.log(inside);
+            }
+
+            doSomething();
+
+            // console.log('out func', outside);
+            // console.log('out func', inside);
+
+
+            /*-------------------------------------
+            | Scope is Available Down, not Up
+            | Called Lexical Scope
+            | The relationship of the variable to where its being called, is the scope chain
+            -------------------------------------*/
+
+
+            /*-------------------------------------
+            | the THIS keyword and Scope
+            -------------------------------------*/
+            console.log(this);
+
+            $('img').click(function(){
+                console.log(this);
+            });
+
+
+            /*-------------------------------------
+            | var, const and let
+            -------------------------------------*/
+            var item1 =     'Apple';
+            const item2 =   'Orange';
+            let item3 =     'Banana';
+
+            // cannot change const value
+            // item2 = 'something else';
+
+            console.log(item1);
+            console.log(item2);
+            console.log(item3);
+
+            let greeting2 = 1;
+            if (true)
+            {
+                var greeting1 = 'Hello Var';
+                let greeting2 = 2;
+                console.log(greeting1);
+                console.log(greeting2);
+            }
+
+            console.log(greeting1);
+            console.log(greeting2);
+
+            /*-------------------------------------
+            | Const and Let are not added to the global Window object
+            -------------------------------------*/
+
+            /*-------------------------------------
+            | You cannot redeclare let variables
+            -------------------------------------*/
+
+            /*-------------------------------------
+            | Const and Let ADD Block scoping (e.g. for, if)
+            -------------------------------------*/
+
+        </script>
+    </body>
+</html>

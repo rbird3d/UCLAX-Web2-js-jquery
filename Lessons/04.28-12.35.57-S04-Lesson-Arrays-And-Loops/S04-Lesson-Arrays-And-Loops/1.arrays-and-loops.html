@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Arrays and Loops</title>
+		<style>
+			body {
+			    background-color: #365634;
+			    color: #eee;
+			}
+			h1 {
+			    margin: 50px 20px 100px;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Arrays and Loops</h1>
+
+		<h2>Ice Creams</h2>
+		<ul>
+			<li>Vanilla</li>
+			<li>Chocolate</li>
+			<li>Raspberry</li>
+			<li>Cookies &amp; Cream</li>
+			<li>Mint Chocolate Chip</li>
+		</ul>
+
+		<script>
+			/*-------------------------------------
+			| Review
+			-------------------------------------*/
+			// single line
+			/*
+				multline
+				allows more than
+			*/
+
+			var timbuktu = "I can't do this";
+			var timbukthree = 'I can\'t do this';
+
+			// console.log(timbuktu + timbukthree);
+
+			var num1 = 235;
+			var num2 = 100.03;
+
+			// console.log(num1 + num2);
+			// console.log(num1 - num2);
+			// console.log(num1 * num2);
+			// console.log(num1 / num2);
+
+			// function declaration
+			function doThisAndThat(anything, arg2) {
+				console.log( anything + arg2 );
+				console.log( 'I went to the park ' + arg2 + ' times yesterday' );
+				console.log('-------------------------------------');
+			}
+			// function call
+			// doThisAndThat('say what', 100);
+			// doThisAndThat( 100 , 75);
+			// doThisAndThat('say where', 50);
+			// doThisAndThat( 200 , 25);
+
+
+			/*-------------------------------------
+			| Arrays FRUITY
+			-------------------------------------*/
+			// upon declaration/initializing
+			var fruity = ['apples', 'oranges', 'bananas', 12];
+
+			// console.log(fruity);
+			// console.log(fruity[0]);
+
+			// add after declaration/initializing
+			fruity.push('grapes');
+			// console.log(fruity);
+
+			// removing array elements
+			fruity.splice(3, 1, 'durian');
+			// console.log(fruity);
+
+			// deleting array elements
+			delete fruity[1];
+			// console.log(fruity);
+
+			// array length - counts number of array elements
+
+			fruity.unshift('raspberries');
+			fruity.push('kiwi');
+			// console.log(fruity);
+			var howMany = fruity.length;
+			// console.log(howMany);
+
+			fruity[2] = 'new';
+			// fruity.splice(1, 1, 'something else');
+			// console.log(fruity);
+			/*-------------------------------------
+			| for Loops VEGGIES
+			-------------------------------------*/
+			// standard for loop
+			for(var i = 0; i <= 5; i++) {
+				// console.log(i);
+			}
+
+
+			// standard for loop against an array
+			var veggies = ['carrots', 'kale', 'spinach'];
+
+			veggies.push('green beans');
+			veggies.push('green beans');
+			veggies.push('green beans');
+			veggies.push('green beans');
+			veggies.unshift('broccoli');
+			veggies.unshift('tomato');
+
+			for(var i = 0; i < veggies.length; i++) {
+
+				// console.log(i, veggies[i]);
+			}
+
+
+			/*-------------------------------------
+			| forEach
+			-------------------------------------*/
+			var cars = ['honda', 'hyundai', 'toyota', 'ford'];
+
+			cars.push('dodge');
+			cars.unshift('tesla');
+
+			// used on arrays
+			cars.forEach(function(car) {
+				// console.log('I drove a ' + car + ' yesterday.');
+			});
+
+
+			// Used on Collections (Not really an array, rather a NodeList or group of live DOM elements)
+			var listItems = document.querySelectorAll('li');
+
+			console.log(listItems);
+
+			listItems.forEach(function(theItem) {
+				console.log('I going to eat ' + theItem.innerHTML + ' ice cream tonight.');
+			});
+
+
+		</script>
+
+
+	</body>
+</html>

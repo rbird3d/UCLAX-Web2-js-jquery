@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Hover :: mouseover and mouseout</title>
+		<link rel="stylesheet" href="./css/styles.css">
+		<style>
+			body { background-color: #467747; }
+		</style>
+	</head>
+	<body>
+		<div class="wrapper">
+			<h1>Hover :: mouseover and mouseout</h1>
+
+			<div class="rollover">
+				<img src="./img/gray/1_300x200.jpg">
+				<img src="./img/gray/2_300x200.jpg">
+				<img src="./img/gray/3_300x200.jpg">
+				<img src="./img/gray/4_300x200.jpg">
+				<img src="./img/gray/5_300x200.jpg">
+				<img src="./img/gray/6_300x200.jpg">
+			</div>
+		</div>
+
+		<script>
+
+			var theImages = document.querySelectorAll('.rollover img');
+
+			console.log('theImages Array', theImages);
+			console.log('theImages Number 1', theImages[0]);
+			console.log('theImages Number 2', theImages[1]);
+			console.log('theImages Number 3', theImages[2]);
+
+			/*-------------------------------------
+			| Image 1
+			-------------------------------------*/
+			theImages[0].addEventListener('mouseover', function() {
+				console.log('over');
+				theImages[0].src = './img/color/1_300x200.jpg';
+			});
+			theImages[0].addEventListener('mouseout', function() {
+				console.log('out');
+				theImages[0].src = './img/gray/1_300x200.jpg';
+			});
+
+
+			/*-------------------------------------
+			| Image 2 goes here...
+			-------------------------------------*/
+
+		</script>
+
+	</body>
+</html>

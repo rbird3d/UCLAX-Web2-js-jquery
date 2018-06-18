@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Functions and Conditions</title>
+		<style>
+			body {
+			    background-color: #365634;
+			    color: #eee;
+			    text-align: center;
+			}
+			h1 {
+			    margin: 50px 20px 100px;
+			}
+		</style>
+		<script>
+			/*-------------------------------------
+			| Review
+			-------------------------------------*/
+			// single line
+			/*
+				great way to organize our thoughts, the code itself
+				notes for us and our teammates
+				troubleshooting - enable disable code
+			*/
+			// var myVar = "contains a can't reference to a value.";
+			// var myStr = 'Another can\'t string';
+			// var myNum = 123;
+			// var myNum2 = 200.12;
+
+			// console.log(myVar + myStr);
+			// console.log(myStr + myNum);
+			// console.log(myNum2 + myNum);
+			// console.log(myNum2 - myNum);
+			// console.log(myNum2 * myNum);
+			// console.log(myNum2 / myNum);
+
+
+
+			/*-------------------------------------
+			| Functions
+			-------------------------------------*/
+			// function declaration
+			function doSomething(myNum) {
+				console.log(myNum + 20);
+				console.log(10 * myNum);
+			}
+
+			// function call
+			doSomething(10);
+			doSomething(20);
+			doSomething(100);
+
+
+			window.onload = function() {
+
+				var theH1 = document.querySelectorAll('h1');
+
+				// console.log(theH1);
+
+				theH1[0].addEventListener('click', function() {
+					// console.log('you hit me');
+				});
+			}
+
+			var weather = 'rain';
+
+			if (weather === 'rain')
+			{
+				console.log('bring your umbrella');
+			}
+			else if (weather === 'sunny')
+			{
+				console.log('bring your sunscreen');
+			}
+			else //this is a fallback if above is not true
+			{
+				console.log('Above was not true');
+			}
+
+		</script>
+	</head>
+	<body>
+		<h1>Functions and Conditions</h1>
+	</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Conditions</title>
+	<style>
+		body {
+			background-color: #365634;
+		}
+
+		h1 {
+			margin: 50px 20px 100px;
+		}
+
+		.container {
+			background-color: white;
+			padding: 20px;
+			width: 300px;
+			margin: auto;
+		}
+
+		header {
+			background-color: #eee;
+			padding: 20px;
+		}
+
+		.departure-details {
+			background-color: goldenrod;
+			padding: 20px;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>Conditions</h1>
+
+	<div class="container">
+		<header>
+			<h2>Your Flight Is Booked</h2>
+			<button class="product">
+					<span>Show</span> Departure Details
+				</button>
+		</header>
+		<div class="departure-details">
+			<p>
+				<span>Departure Airport: </span>
+				<span>LAX</span>
+			</p>
+			<p>
+				<span>Departure Time: </span>
+				<span>08:00</span>
+			</p>
+		</div>
+	</div>
+
+
+	<script>
+		/*-------------------------------------
+					| Review
+					-------------------------------------*/
+		// single line comments
+
+		/*-------------------------------------
+		| multiline comments
+		-------------------------------------*/
+
+		// var container1 = "I went to the park";
+		// var container2 = 'I can\'t do this';
+		//
+		// console.log(container1 + ' AND ' + container2);
+		//
+		// console.log('200' + 300);
+
+
+		/*-------------------------------------
+			| Conditions
+// 			-------------------------------------*/
+		// var weather = 'rainy';
+		//
+		// if (weather == 'sunny')
+		// {
+		// 	console.log('bring your umbrella');
+		// }
+		// else
+		// {
+		// 	console.log('bring your sunscreen');
+		// }
+		/*-------------------------------------
+		| Toggle Element Examples
+		-------------------------------------*/
+
+		// grabs some toys
+		var button = document.querySelector('button.product');
+		var showHideText = document.querySelector('button.product span');
+		var departureDetails = document.querySelector('div.departure-details');
+
+		console.log('Button', button);
+		console.log('Show Hide Text', showHideText);
+		console.log('Depart Details', departureDetails);
+		// 1. hide the departure Details
+departureDetails.style.display == 'none'
+		button.addEventListener('click', function() {
+			console.log('you clicked me!');
+
+			if (departureDetails.style.display == 'none')
+			{
+				console.log('Do A');
+				// a. shows departure Details
+				departureDetails.style.display = 'block';
+					// change name to 'hide'
+				 	showHideText.innerHTML = 'Hide';
+
+			} else {
+
+				console.log('Do B');
+
+				//b. hides departure details
+				departureDetails.style.display = 'none';
+					showHideText.innerHTML = 'Show';
+				// change name to 'show'
+			}
+		});
+	</script>
+
+</body>
+
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Remote Swap</title>
+		<link rel="stylesheet" href="./css/styles.css">
+		<style>
+			.remote {
+				border: solid teal 10px;
+				width: 960px;
+				height: 320px;
+				margin: 25px auto;
+				background-color: white;
+				position: relative;
+			}
+			/*Thumbnails on the right or left*/
+			.remote .thumbs {
+				position: absolute;
+				left: 0px;
+				top: 0px;
+
+				width: 320px;
+				height: 320px;
+
+				/* font-size: 0px; */
+
+				display: flex;
+				flex-wrap: wrap;
+			}
+
+			.remote .thumbs img {
+				width: 80px;
+				height: 80px;
+			}
+
+			/*Large opposite of the thumbnails (e.g. right or left)*/
+			.remote .large {
+				position: absolute;
+				right: 0px;
+				top: 0px;
+			}
+			.remote .large img {
+				width: 640px; height: 320px;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Remote Swap</h1>
+
+		<div class="remote">
+			<div class="thumbs">
+				<img data-large="./img/large/Large_1.jpg" src="./img/small/Small_1.png">
+				<img data-large="./img/large/Large_2.jpg" src="./img/small/Small_2.png">
+				<img data-large="./img/large/Large_3.jpg" src="./img/small/Small_3.png">
+				<img data-large="./img/large/Large_4.jpg" src="./img/small/Small_4.png">
+				<img data-large="./img/large/Large_5.jpg" src="./img/small/Small_5.png">
+				<img data-large="./img/large/Large_6.jpg" src="./img/small/Small_6.png">
+				<img data-large="./img/large/Large_7.jpg" src="./img/small/Small_7.png">
+				<img data-large="./img/large/Large_8.jpg" src="./img/small/Small_8.png">
+				<img data-large="./img/large/Large_9.jpg" src="./img/small/Small_9.png">
+				<img data-large="./img/large/Large_10.jpg" src="./img/small/Small_10.png">
+				<img data-large="./img/large/Large_11.jpg" src="./img/small/Small_11.png">
+				<img data-large="./img/large/Large_12.jpg" src="./img/small/Small_12.png">
+				<img data-large="./img/large/Large_13.jpg" src="./img/small/Small_13.png">
+				<img data-large="./img/large/Large_14.jpg" src="./img/small/Small_14.png">
+				<img data-large="./img/large/Large_15.jpg" src="./img/small/Small_15.png">
+				<img data-large="./img/large/Large_16.jpg" src="./img/small/Small_16.png">
+			</div>
+			<div class="large">
+				<img class="large_img" data-large="./img/large/Large_1.jpg" src="./img/large/Large_1.jpg">
+			</div>
+		</div>
+		<script>
+			var thumbs = document.querySelectorAll('.remote .thumbs img');
+			var large = document.querySelectorAll('.large_img');
+
+			// console.log(thumbs);
+
+			function thumb_over(){
+				console.log(this);
+				console.log(this.dataset.large);
+				var newSrc = this.dataset.large;
+				large[0].src = newSrc;
+			}
+
+			large[0].addEventListener('mouseover', thumb_over);
+			thumbs[0].addEventListener('mouseover', thumb_over);
+			thumbs[1].addEventListener('mouseover', thumb_over);
+			thumbs[2].addEventListener('mouseover', thumb_over);
+			thumbs[3].addEventListener('mouseover', thumb_over);
+			thumbs[4].addEventListener('mouseover', thumb_over);
+			thumbs[5].addEventListener('mouseover', thumb_over);
+			thumbs[6].addEventListener('mouseover', thumb_over);
+			thumbs[7].addEventListener('mouseover', thumb_over);
+			thumbs[8].addEventListener('mouseover', thumb_over);
+			thumbs[9].addEventListener('mouseover', thumb_over);
+			thumbs[10].addEventListener('mouseover', thumb_over);
+			thumbs[11].addEventListener('mouseover', thumb_over);
+			thumbs[12].addEventListener('mouseover', thumb_over);
+			thumbs[13].addEventListener('mouseover', thumb_over);
+			thumbs[14].addEventListener('mouseover', thumb_over);
+			thumbs[15].addEventListener('mouseover', thumb_over);
+
+		</script>
+	</body>
+</html>
